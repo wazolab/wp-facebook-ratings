@@ -9,14 +9,6 @@ function fbr_deactivate_plugin(){
   $fbr_opts = get_option( 'fbr_opts' );
 
   if( $fbr_opts ){
-    $opts = [
-      'fbr_app_id' => null,
-      'fbr_app_secret' => null,
-      'fbr_page_id' => null,
-      'fbr_page_access_token' => null,
-      'fbr_ratings' => array(),
-    ];
-
-    update_option( 'fbr_opts', $fbr_opts );
+    delete_option( 'fbr_opts' );
   }
 }
