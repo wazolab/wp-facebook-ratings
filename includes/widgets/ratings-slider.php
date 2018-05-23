@@ -95,7 +95,7 @@ class FB_Ratings_Slider_Widget extends WP_Widget
 		echo $before_widget;
 
 		?>
-		<div id="ratings-slider" class="carousel slide" data-ride="false">
+		<div id="ratings-slider" class="carousel slide" data-ride="carousel">
 			<img class="slider-bg d-block w-100" src="<?php echo plugin_dir_url( FBR_PLUGIN_URL ) . '/assets/images/ratings-slider-placeholder.jpg'; ?>" alt="FB Ratings">
 			<ol class="carousel-indicators">
 				<?php foreach( $fbr_ratings as $key => $rating ) : ?>
