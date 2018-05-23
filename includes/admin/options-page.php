@@ -98,8 +98,6 @@ function fbr_plugin_opts_page(){
                 name="fbr_app_id"
                 value="<?php echo ($fbr_app_id) ? $fbr_app_id : null; ?>"
                 placeholder="Ex: 012345678901234"
-                minlength="15"
-                maxlength="15"
                 required />
             </div>
             <div class="form-group">
