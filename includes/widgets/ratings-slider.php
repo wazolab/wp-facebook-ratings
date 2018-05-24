@@ -51,7 +51,7 @@ class FB_Ratings_Slider_Widget extends WP_Widget
     try {
       // Get the \Facebook\GraphNodes\GraphUser object for the current user.
       // If you provided a 'default_access_token', the '{access-token}' is optional.
-      $response = $fb->get('/'. $fbr_page_id .'/ratings?limit=15&fields=reviewer,has_rating,has_review,review_text,rating,created_time', $fbr_page_access_token);
+      $response = $fb->get('/'. $fbr_page_id .'/ratings?fields=reviewer,has_rating,has_review,review_text,rating,created_time', $fbr_page_access_token);
     } catch(\Facebook\Exceptions\FacebookResponseException $e) {
       // When Graph returns an error
       echo 'Graph returned an error: ' . $e->getMessage();
@@ -66,7 +66,7 @@ class FB_Ratings_Slider_Widget extends WP_Widget
 
 		
 		foreach( $graphEdge as $graphNode ) {
-			if( $graphNode->getField( 'has_rating' ) && $graphNode->getField('has_review') ){
+			if( $graphNode->getField( 'has_rating' ) && $graphNode->getField('has_review') && $graphNode->getField('rating') > 3 ){
 				array_push($fbr_opts['fbr_ratings'], $graphNode->asArray());
 			}
 		}
